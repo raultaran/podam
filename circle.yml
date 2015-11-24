@@ -1,6 +1,9 @@
 machine:
   java:
-    version: oraclejdk8
+    version:
+     - oraclejdk8
+     - oraclejdk7
+     - openjdk6
 branches:
   only:
     - master
@@ -8,6 +11,4 @@ test:
  post:
    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
    - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-general:
-  artifacts:
-    - $CIRCLE_TEST_REPORTS
+
